@@ -2,33 +2,34 @@ const cartas = [
   {
     nome: "Carta 1",
     texto: "Uma mudança está chegando.",
-    imagem: "img/carta1.jpg"
+    imagem: "img/IMG_3643%202.jpeg"
   },
   {
     nome: "Carta 2",
     texto: "Confie na sua intuição.",
-    imagem: "img/carta2.jpg"
+    imagem: "img/IMG_3644%202.jpeg"
   },
   {
     nome: "Carta 3",
     texto: "Algo precisa ser encerrado.",
-    imagem: "img/carta3.jpg"
+    imagem: "img/IMG_3645%202.jpeg"
   },
   {
     nome: "Carta 4",
     texto: "Uma oportunidade vai surgir.",
-    imagem: "img/carta4.jpg"
+    imagem: "img/IMG_3646%202.jpeg"
   },
   {
     nome: "Carta 5",
     texto: "Cuidado com decisões impulsivas.",
-    imagem: "img/carta5.jpg"
+    imagem: "img/IMG_3647%202.jpeg"
   },
   {
     nome: "Carta 6",
     texto: "Boas energias estão próximas.",
-    imagem: "img/carta6.jpg"
+    imagem: "img/IMG_3648%202.jpeg"
   }
+];
 ];
 
 function scrollToSection() {
