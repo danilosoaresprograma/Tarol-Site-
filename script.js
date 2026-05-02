@@ -1,102 +1,91 @@
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  text-align: center;
+const cartas = [
+  {
+    nome: "Carta 1",
+    texto: "Uma mudança está chegando.",
+    imagem: "img/carta1.jpg"
+  },
+  {
+    nome: "Carta 2",
+    texto: "Confie na sua intuição.",
+    imagem: "img/carta2.jpg"
+  },
+  {
+    nome: "Carta 3",
+    texto: "Algo precisa ser encerrado.",
+    imagem: "img/carta3.jpg"
+  },
+  {
+    nome: "Carta 4",
+    texto: "Uma oportunidade vai surgir.",
+    imagem: "img/carta4.jpg"
+  },
+  {
+    nome: "Carta 5",
+    texto: "Cuidado com decisões impulsivas.",
+    imagem: "img/carta5.jpg"
+  },
+  {
+    nome: "Carta 6",
+    texto: "Boas energias estão próximas.",
+    imagem: "img/carta6.jpg"
+  }
+];
+
+function scrollToSection() {
+  document.getElementById("tiragem").scrollIntoView({
+    behavior: "smooth"
+  });
 }
 
-/* FUNDO */
-.bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(270deg, #0a0012, #3b0066, #6a00f4, #3b0066);
-  background-size: 800% 800%;
-  animation: flow 15s ease infinite;
-  z-index: -1;
+function iniciarTiragem() {
+  const card = document.getElementById("card");
+  const resultado = document.getElementById("resultado");
+  const som = document.getElementById("som");
+
+  card.classList.remove("flip");
+
+  resultado.innerHTML = "🔮 Conectando energias...";
+
+  setTimeout(() => {
+    resultado.innerHTML = "✨ Revelando...";
+  }, 1200);
+
+  setTimeout(() => {
+    const carta = cartas[Math.floor(Math.random() * cartas.length)];
+
+    resultado.innerHTML = `
+      <img src="${carta.imagem}" class="carta-img">
+      <strong>${carta.nome}</strong>
+      <p>${carta.texto}</p>
+    `;
+
+    card.classList.add("flip");
+
+    som.currentTime = 0;
+    som.play();
+  }, 2600);
 }
 
-@keyframes flow {
-  0% { background-position: 0% }
-  50% { background-position: 100% }
-  100% { background-position: 0% }
-}
+/* SCROLL */
+const elements = document.querySelectorAll(".fade");
 
-/* CARTA */
-.tarot-area {
-  margin-top: 40px;
-}
+window.addEventListener("scroll", () => {
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 50) {
+      el.classList.add("show");
+    }
+  });
+});
 
-.card {
-  width: 160px;
-  height: 230px;
-  margin: auto;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-  cursor: pointer;
-}
+/* ENVIO */
+function enviarPergunta() {
+  const pergunta = document.getElementById("pergunta").value;
 
-.card.flip {
-  transform: rotateY(180deg);
-}
+  if (pergunta.trim() === "") {
+    alert("Digite sua pergunta.");
+    return;
+  }
 
-.face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.front {
-  background: linear-gradient(135deg, #7c3aed, #4c1d95);
-}
-
-.back {
-  background: #1e1b4b;
-  transform: rotateY(180deg);
-  padding: 10px;
-}
-
-/* TEXTO */
-.hint {
-  opacity: 0.7;
-  margin-top: 10px;
-}
-
-/* INPUT */
-textarea {
-  width: 85%;
-  height: 120px;
-  border-radius: 10px;
-  border: none;
-  padding: 10px;
-  margin-top: 20px;
-}
-
-/* BOTÃO */
-button {
-  margin-top: 15px;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 10px;
-  background: #a855f7;
-  color: white;
-  cursor: pointer;
-}
-
-/* ANIMAÇÃO */
-.fade {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.8s;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+  window.open("https://instagram.com/direct/new/", "_blank");
 }
