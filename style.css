@@ -102,9 +102,9 @@ button:hover {
 
 /* ANIMAÇÃO */
 .fade {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.8s;
+  opacity: 1;
+  transform: translateY(0);
+}
 }
 
 .fade.show {
