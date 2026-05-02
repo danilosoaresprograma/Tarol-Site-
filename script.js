@@ -1,35 +1,102 @@
-function scrollToSection() {
-  document.getElementById("tiragem").scrollIntoView({
-    behavior: "smooth"
-  });
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
 }
 
-function flipCard() {
-  const card = document.getElementById("mainCard");
-  card.classList.toggle("flip");
+/* FUNDO */
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #0a0012, #3b0066, #6a00f4, #3b0066);
+  background-size: 800% 800%;
+  animation: flow 15s ease infinite;
+  z-index: -1;
 }
 
-/* ANIMAÇÃO SCROLL */
-const elements = document.querySelectorAll(".fade");
+@keyframes flow {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
 
-window.addEventListener("scroll", () => {
-  elements.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 50) {
-      el.classList.add("show");
-    }
-  });
-});
+/* CARTA */
+.tarot-area {
+  margin-top: 40px;
+}
 
-/* ENVIO */
-function enviarPergunta() {
-  const pergunta = document.getElementById("pergunta").value;
+.card {
+  width: 160px;
+  height: 230px;
+  margin: auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  cursor: pointer;
+}
 
-  if (pergunta.trim() === "") {
-    alert("Digite sua pergunta.");
-    return;
-  }
+.card.flip {
+  transform: rotateY(180deg);
+}
 
-  alert("Agora envie sua pergunta no Instagram @by.mabbi");
-  window.open("https://instagram.com/direct/new/", "_blank");
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front {
+  background: linear-gradient(135deg, #7c3aed, #4c1d95);
+}
+
+.back {
+  background: #1e1b4b;
+  transform: rotateY(180deg);
+  padding: 10px;
+}
+
+/* TEXTO */
+.hint {
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
+/* INPUT */
+textarea {
+  width: 85%;
+  height: 120px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* BOTÃO */
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #a855f7;
+  color: white;
+  cursor: pointer;
+}
+
+/* ANIMAÇÃO */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
 }
