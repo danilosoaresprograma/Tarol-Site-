@@ -3,64 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>Mabi Tarô</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- FUNDO -->
   <div class="bg"></div>
-  <div class="noise"></div>
 
-  <!-- HERO -->
   <header class="fade">
     <h1>Mabi</h1>
-    <p class="subtitle">Pergunte sobre qualquer coisa</p>
+    <p>Pergunte sobre qualquer coisa</p>
     <button onclick="scrollToSection()">🔮 Fazer minha pergunta</button>
   </header>
 
-  <!-- CARTAS FLUTUANTES -->
-  <div class="floating-cards">
-    <div class="card-float"></div>
-    <div class="card-float delay1"></div>
-    <div class="card-float delay2"></div>
-  </div>
+  <!-- ÁREA DA CARTA -->
+  <div class="tarot-area fade">
 
-  <!-- CARTA INTERATIVA -->
-  <div class="card-container fade" onclick="flipCard()">
-    <div class="card" id="mainCard">
-      <div class="front"></div>
-      <div class="back">
-        ✨ Revelando energia...
-      </div>
+    <div class="card" id="card" onclick="iniciarTiragem()">
+      <div class="face front"></div>
+      <div class="face back" id="resultado">🔮</div>
     </div>
-  </div>
 
-  <!-- SOBRE -->
-  <section class="fade">
-    <h2>Como funciona</h2>
-    <p>
-      Faça sua pergunta e receba uma leitura intuitiva.
-      Sem julgamentos. Apenas respostas.
-    </p>
-  </section>
+    <p class="hint">Toque na carta para revelar</p>
+  </div>
 
   <!-- TIRAGEM -->
   <section id="tiragem" class="fade">
     <h2>Sua pergunta</h2>
-    <textarea id="pergunta" placeholder="Ex: Ele(a) ainda pensa em mim?"></textarea>
-    <button onclick="enviarPergunta()">✨ Enviar pergunta</button>
-    <p class="gratis">Leitura gratuita</p>
+    <textarea id="pergunta" placeholder="Ex: Vou conseguir aquele emprego?"></textarea>
+    <button onclick="enviarPergunta()">Enviar pergunta</button>
   </section>
 
   <footer class="fade">
     <p>@by.mabbi</p>
   </footer>
+
+  <!-- SOM -->
+  <audio id="som">
+    <source src="https://assets.mixkit.co/sfx/preview/mixkit-magic-spell-600.mp3">
+  </audio>
 
   <script src="script.js"></script>
 </body>
