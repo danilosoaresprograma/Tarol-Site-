@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* FUNDO FLUIDO FORTE */
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #0a0012, #2b0050, #6a00f4, #2b0050);
+  background-size: 800% 800%;
+  animation: gradientFlow 18s ease infinite;
+  z-index: -3;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* TEXTURA SUTIL */
+.noise {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/noise.png");
+  opacity: 0.05;
+  z-index: -2;
+}
+
+/* HERO */
+h1 {
+  font-size: 3.5em;
+  margin-top: 80px;
+}
+
+.subtitle {
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+/* BOTÃO */
+button {
+  background: linear-gradient(135deg, #c084fc, #7c3aed);
+  border: none;
+  padding: 14px 28px;
+  color: white;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1em;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+/* CARTAS FLUTUANTES */
+.floating-cards {
+  position: relative;
+  height: 180px;
+}
+
+.card-float {
+  width: 90px;
+  height: 140px;
+  background: linear-gradient(135deg, #7c3aed, #4c1d95);
+  border-radius: 12px;
+  position: absolute;
+  left: 20%;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.delay1 {
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.delay2 {
+  left: 75%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* CARTA PRINCIPAL */
+.card-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 160px;
+  height: 230px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front {
+  background: linear-gradient(135deg, #5b21b6, #7c3aed);
+}
+
+.back {
+  background: linear-gradient(135deg, #2e1065, #1e1b4b);
+  transform: rotateY(180deg);
+  font-size: 18px;
+  padding: 10px;
+}
+
+/* SEÇÕES */
+section {
+  margin-top: 80px;
+  padding: 0 20px;
+}
+
+textarea {
+  width: 85%;
+  height: 120px;
+  border-radius: 12px;
+  border: none;
+  padding: 12px;
+}
+
+/* TEXTO */
+.gratis {
+  opacity: 0.7;
+}
+
+/* ANIMAÇÃO SCROLL */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
