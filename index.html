@@ -10,42 +10,38 @@
 </head>
 <body>
 
-  <!-- FUNDO -->
-  <div class="bg"></div>
+<div class="bg"></div>
 
-  <header class="fade">
-    <h1>Mabi</h1>
-    <p>Pergunte sobre qualquer coisa</p>
-    <button onclick="scrollToSection()">🔮 Fazer minha pergunta</button>
-  </header>
+<header class="fade">
+  <h1>Mabi</h1>
+  <p>Pergunte sobre qualquer coisa</p>
+  <button onclick="scrollToSection()">🔮 Fazer minha pergunta</button>
+</header>
 
-  <!-- ÁREA DA CARTA -->
-  <div class="tarot-area fade">
+<div class="tarot-area fade">
 
-    <div class="card" id="card" onclick="iniciarTiragem()">
-      <div class="face front"></div>
-      <div class="face back" id="resultado">🔮</div>
-    </div>
-
-    <p class="hint">Toque na carta para revelar</p>
+  <div class="card" id="card" onclick="iniciarTiragem()">
+    <div class="face front"></div>
+    <div class="face back" id="resultado">🔮</div>
   </div>
 
-  <!-- TIRAGEM -->
-  <section id="tiragem" class="fade">
-    <h2>Sua pergunta</h2>
-    <textarea id="pergunta" placeholder="Ex: Vou conseguir aquele emprego?"></textarea>
-    <button onclick="enviarPergunta()">Enviar pergunta</button>
-  </section>
+  <p class="hint">Toque na carta para revelar</p>
+</div>
 
-  <footer class="fade">
-    <p>@by.mabbi</p>
-  </footer>
+<section id="tiragem" class="fade">
+  <h2>Sua pergunta</h2>
+  <textarea id="pergunta" placeholder="Ex: Vou conseguir aquele emprego?"></textarea>
+  <button onclick="enviarPergunta()">Enviar pergunta</button>
+</section>
 
-  <!-- SOM -->
-  <audio id="som">
-    <source src="https://assets.mixkit.co/sfx/preview/mixkit-magic-spell-600.mp3">
-  </audio>
+<footer class="fade">
+  <p>@by.mabbi</p>
+</footer>
 
-  <script src="script.js"></script>
+<audio id="som">
+  <source src="https://assets.mixkit.co/sfx/preview/mixkit-magic-spell-600.mp3">
+</audio>
+
+<script src="script.js"></script>
 </body>
 </html>
